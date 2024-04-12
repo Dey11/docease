@@ -1,22 +1,21 @@
 import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes";
 import uploadFilesRoutes from "./routes/uploadFilesRoutes";
 import { connect } from "http2";
-import connecttoMongoDB from "./db/index";
+import connectToMongoDB from "./db/index";
 
 // Create an Express application
 const app = express();
-require("dotenv").config();
+dotenv.config();
 const PORT = process.env.PORT || 3000;
-const mongo_url = process.env.MONGO_URL;
 
-//middleware to enable CORS
-app.use(cors());
-
-// Middleware to parse JSON bodies
+// Middlewares
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
@@ -26,13 +25,13 @@ app.use("/api/upload", uploadFilesRoutes);
 
 // Define routes
 app.get("/", (req: Request, res: Response) => {
-  res.send("Helloo world this is my server .");
+  res.send("hello world.");
 });
 
 // Connect to MongoDB
-connecttoMongoDB();
+connectToMongoDB();
 
 // Start the server
-app.listen(PORT, async () => {
+app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
