@@ -1,10 +1,13 @@
 import express from "express";
 import upload from "../middleware/multerMiddleware";
+import {
+  uploadImage,
+  uploadPdf,
+  uploadDocs,
+} from "../controllers/uploadFilesController";
 
-const router = express.Router();
+export const router = express.Router();
 
-router.post("/upload", upload.single("image"), (req, res) => {
-  res.send("Image uploaded");
-});
-
-export default router;
+router.post("/pdf", upload.single("pdf"), uploadPdf);
+router.post("/image", upload.single("image"), uploadImage);
+router.post("/docs", upload.single("docs"), uploadDocs);
