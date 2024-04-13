@@ -16,6 +16,7 @@ const uploadToCloudinary = async (imageName: string, username: string) => {
       public_id: imageName,
       use_asset_folder_as_public_id_prefix: true,
       asset_folder: username,
+      use_filename_as_display_name: true,
     },
     function (error, result) {
       if (error) {
