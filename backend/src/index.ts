@@ -3,8 +3,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import userRoutes from "./routes/userRoutes";
-import uploadFilesRoutes from "./routes/uploadFilesRoutes";
+import { router as userRoutes } from "./routes/userRoutes";
+import { router as uploadFilesRoutes } from "./routes/uploadFilesRoutes";
 import { connect } from "http2";
 import connectToMongoDB from "./db/index";
 
