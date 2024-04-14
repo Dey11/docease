@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import User from "../models/user.model";
 
 import { IUser } from "../ts/interfaces";
+require("dotenv").config();
 
 const salt = bcrypt.genSaltSync(10);
 
