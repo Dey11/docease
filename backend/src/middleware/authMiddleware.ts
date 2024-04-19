@@ -13,7 +13,9 @@ export const authMiddleware = async (
       token,
       process.env.JWT_SECRET as Secret
     ) as JwtPayload;
-
+    if (!decoded) {
+      return res.status(401).json({ message: "auth failed" });
+    }
     req.decodedId = decoded.id;
     next();
   } catch (err) {
