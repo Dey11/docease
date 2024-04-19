@@ -8,8 +8,8 @@ const Layout: React.FC = () => {
   return (
     <>
       {/* <Header /> */}
-      <ImgUpload />
-      {/* <Outlet /> */}
+      {/* <ImgUpload /> */}
+      <Outlet />
       {/* <Footer /> */}
     </>
   );

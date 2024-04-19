@@ -1,39 +1,3 @@
-// import React from "react";
-// import { useState } from "react";
-// import axios from "axios";
-
-// const ImgUpload = () => {
-//   const [image, setImage] = useState<File | null>(null);
-
-//   const handleChange = () => {
-//     console.log("hi");
-//     axios
-//       .post("http://localhost:3000/api/upload/image", image)
-//       .then((res: any) => {
-//         console.log(res);
-//       });
-//   };
-
-//   return (
-//     <div>
-//       <form encType="multipart/form-data" onSubmit={handleChange}>
-//         <input
-//           type="file"
-//           name="image"
-//           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-//             if (e.target.files) {
-//               setImage(e.target.files[0] as File);
-//             }
-//           }}
-//         />
-//         <button type="submit">Upload</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default ImgUpload;
-
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -69,6 +33,7 @@ const ImgUpload = () => {
         "http://localhost:3000/api/upload/image",
         formData,
         {
+          withCredentials: true,
           headers: {
             "Content-Type": "multipart/form-data",
           },

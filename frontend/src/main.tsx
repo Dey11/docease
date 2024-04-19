@@ -20,6 +20,7 @@ import SignUp from "./pages/SignUp";
 import UserProfile from "./pages/UserProfile";
 import UserSetting from "./pages/UserSetting";
 import "./index.css";
+import ImgUpload from "./pages/ImgUpload";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Homepage /> },
+      { path: "upload", element: <ImgUpload /> },
       { path: "login", element: <Login /> },
       { path: "signup", element: <SignUp /> },
       { path: "profile/:id", element: <UserProfile /> },
